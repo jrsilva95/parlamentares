@@ -16,13 +16,13 @@ async function getPartidos(){
         
         const dados = json.dados;
 
-        for(var partido in dados){
+        for(var partido of dados){
             partidosSelect.innerHTML += "<option value=\""+ partido.id +"\">" + partido.nome + "</option>";
         }
 
         const links = json.links;
 
-        for(var link in links){
+        for(var link of links){
             if(link.rel.contains("next")){
                 url = link.href;
             }
