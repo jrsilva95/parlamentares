@@ -2,9 +2,11 @@ const baseUrl = "https://dadosabertos.camara.leg.br/api/v2/"
 
 const partidosSelect = document.getElementById("partidoSelect");
 
-async function getPartidos(){
+async function getPartidos(url){
 
-    let url = baseUrl + "partidos";
+    if(!url){
+        url = baseUrl + "partidos";
+    }
 
     try {
         const response = await fetch(url);
@@ -23,8 +25,8 @@ async function getPartidos(){
         const links = json.links;
 
         for(var link of links){
-            if(link.rel.contains("next")){
-                url = link.href;
+            if(link.rel == "next"){
+                getPartidos(link.href)
             }
         }
 
