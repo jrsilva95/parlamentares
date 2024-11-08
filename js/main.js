@@ -51,10 +51,14 @@ function changeListParlamentares(){
 
 }
 
+function sanitize(str){
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+}
+
 async function getParlamentares(sigla, url){
 
     if(!url){
-        url = baseUrl + "deputados?siglaPartido=" + sigla;
+        url = baseUrl + "deputados?siglaPartido=" + sanitize(sigla);
     }
 
     try {
