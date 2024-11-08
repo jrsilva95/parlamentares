@@ -40,6 +40,7 @@ async function getPartidos(url){
         console.log("Carregou partidos", url);
 
       } catch (error) {
+        loading.textContent = `Response status: ${error.message}`;
         console.error(error.message);
       }
 
@@ -96,6 +97,7 @@ async function getParlamentares(sigla, url){
         console.log("Carregou parlamentares", url);
 
       } catch (error) {
+        loading.textContent = `Response status: ${error.message}`;
         console.error(error.message);
       }
 
