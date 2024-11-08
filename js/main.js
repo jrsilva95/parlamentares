@@ -45,7 +45,7 @@ async function getPartidos(url){
 
 function changeListParlamentares(){
 
-    parlamentaresList.innerHTML = '';
+    parlamentaresList.innerHTML = 'Carregando...';
 
     getParlamentares(partidosSelect.value);
 
