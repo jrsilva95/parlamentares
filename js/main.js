@@ -2,6 +2,10 @@ const baseUrl = "https://dadosabertos.camara.leg.br/api/v2/"
 
 const partidosSelect = document.getElementById("partidoSelect");
 
+function init(){
+    getPartidos();
+}
+
 async function getPartidos(url){
 
     if(!url){
@@ -38,4 +42,4 @@ async function getPartidos(url){
 
 }
 
-document.addEventListener('DOMContentLoaded', getPartidos, false);
+document.addEventListener('DOMContentLoaded', init, false);
