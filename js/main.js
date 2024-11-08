@@ -68,7 +68,7 @@ async function getParlamentares(sigla, url){
         const dados = json.dados;
 
         for(var partido of dados){
-            partidosSelect.innerHTML += "<li>" + partido.nome + "</li>";
+            parlamentaresList.innerHTML += "<li>" + partido.nome + "</li>";
         }
 
         const links = json.links;
