@@ -50,6 +50,8 @@ function changeListParlamentares(){
     loading.classList.remove("hide");
     loading.classList.add("show");
 
+    loading.textContent = "Carregando...."
+
     getParlamentares(partidosSelect.value);
 
 }
@@ -67,7 +69,8 @@ async function getParlamentares(sigla, url){
     try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
+            loading.textContent = `Response status: ${response.status}`;]
+            throw new Error(`Response status: ${response.status}`);
         }
 
         loading.classList.add("hide");
