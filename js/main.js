@@ -2,6 +2,7 @@ const baseUrl = "https://dadosabertos.camara.leg.br/api/v2/"
 
 const partidosSelect = document.getElementById("partidoSelect");
 const parlamentaresList = document.getElementById("parlamentares");
+const loading = document.getElementById("loading");
 
 function init(){
     getPartidos();
@@ -45,7 +46,9 @@ async function getPartidos(url){
 
 function changeListParlamentares(){
 
-    parlamentaresList.innerHTML = 'Carregando...';
+    parlamentaresList.innerHTML = '';
+    loading.classList.remove("hide");
+    loading.classList.add("show");
 
     getParlamentares(partidosSelect.value);
 
@@ -66,6 +69,9 @@ async function getParlamentares(sigla, url){
         if (!response.ok) {
           throw new Error(`Response status: ${response.status}`);
         }
+
+        loading.classList.add("hide");
+        loading.classList.remove("show");
     
         const json = await response.json();
         
